@@ -3172,8 +3172,6 @@ def multi_head_attention_forward(query,                           # type: Tensor
             a combination of q_proj_weight, k_proj_weight, v_proj_weight.
         q_proj_weight, k_proj_weight, v_proj_weight, in_proj_bias: input projection weight and bias.
         static_k, static_v: static key and value used for attention operators.
-
-
     Shape:
         Inputs:
         - query: :math:`(L, N, E)` where L is the target sequence length, N is the batch size, E is
@@ -3188,7 +3186,6 @@ def multi_head_attention_forward(query,                           # type: Tensor
           N is the batch size, E is the embedding dimension. E/num_heads is the head dimension.
         - static_v: :math:`(N*num_heads, S, E/num_heads)`, where S is the source sequence length,
           N is the batch size, E is the embedding dimension. E/num_heads is the head dimension.
-
         Outputs:
         - attn_output: :math:`(L, N, E)` where L is the target sequence length, N is the batch size,
           E is the embedding dimension.

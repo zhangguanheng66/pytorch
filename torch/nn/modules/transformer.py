@@ -154,6 +154,7 @@ class TransformerEncoder(Module):
 
     def __init__(self, encoder_layer, num_layers, norm=None):
         super(TransformerEncoder, self).__init__()
+        print("build TransformerEncoder with the master branch")
         self.layers = _get_clones(encoder_layer, num_layers)
         self.num_layers = num_layers
         self.norm = norm

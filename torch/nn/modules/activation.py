@@ -650,11 +650,9 @@ class MultiheadAttention(Module):
     r"""Allows the model to jointly attend to information
     from different representation subspaces.
     See reference: Attention Is All You Need
-
     .. math::
         \text{MultiHead}(Q, K, V) = \text{Concat}(head_1,\dots,head_h)W^O
         \text{where} head_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
-
     Args:
         embed_dim: total dimension of the model.
         num_heads: parallel attention heads.
@@ -665,12 +663,9 @@ class MultiheadAttention(Module):
                        value sequences at dim=1.
         kdim: total number of features in key. Default: None.
         vdim: total number of features in key. Default: None.
-
         Note: if kdim and vdim are None, they will be set to embed_dim such that
         query, key, and value have the same number of features.
-
     Examples::
-
         >>> multihead_attn = nn.MultiheadAttention(embed_dim, num_heads)
         >>> attn_output, attn_output_weights = multihead_attn(query, key, value)
     """
@@ -738,7 +733,6 @@ class MultiheadAttention(Module):
         need_weights: output attn_output_weights.
         attn_mask: mask that prevents attention to certain positions. This is an additive mask
             (i.e. the values will be added to the attention layer).  
-
     Shape:
         - Inputs:
         - query: :math:`(L, N, E)` where L is the target sequence length, N is the batch size, E is
@@ -749,7 +743,6 @@ class MultiheadAttention(Module):
           the embedding dimension.
         - key_padding_mask: :math:`(N, S)`, ByteTensor, where N is the batch size, S is the source sequence length.
         - attn_mask: :math:`(L, S)` where L is the target sequence length, S is the source sequence length.
-
         - Outputs:
         - attn_output: :math:`(L, N, E)` where L is the target sequence length, N is the batch size,
           E is the embedding dimension.
